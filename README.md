@@ -2,7 +2,7 @@
 
 A full-stack real-time chat application, containerized with Docker and deployed on Kubernetes — built as a hands-on DevOps project covering multi-service orchestration, secrets management, and production-style debugging.
 
-> Forked and adapted from [Train With Shubham](https://github.com/trainwithshubham)'s tutorial series, with independent debugging and deployment work done entirely on a local `kind` (Kubernetes IN Docker) cluster.
+> Based on the open-source project full-stack_chatApp by Afzal Hassan, followed through Train With Shubham's tutorial series. This repository adds my own Kubernetes deployment work, including PV/PVC storage, Secrets handling, ingress and debugging, on a local kind cluster.
 
 ---
 
