@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: chat-app
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      name: frontend-pod
+      namespace: chat-app
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: chatapp-frontend
+        image: devopschahak/chatapp-frontend:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: NODE_ENV
+          value: production
+        - name: MONGODB_URI
+          value: "mongodb://mongoadmin:secret@mongodb:27017/dbname?authSource=admin"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: chatapp-secrets
+              key: jwt
+        - name: PORT
+          value: "80"
